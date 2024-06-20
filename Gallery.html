@@ -5,8 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>AIML Community</title>
-    <meta name="description"
-          content="The Official Website for the AIML Community"/>
+    <meta name="description" content="The Official Website for the AIML Community"/>
 
     <!--Inter UI font-->
     <link href="https://rsms.me/inter/inter-ui.css" rel="stylesheet">
@@ -18,6 +17,17 @@
 
     <!-- Bootstrap CSS / Color Scheme -->
     <link rel="stylesheet" href="css/default.css" id="theme-color">
+    
+    <!-- Custom styles -->
+    <style>
+        .img-raised {
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .img-raised:hover {
+            transform: scale(1.05);
+        }
+    </style>
 </head>
 <body>
 <!--navigation-->
@@ -38,8 +48,7 @@
                         <a class="nav-link page-scroll" href="./Events.html">Events</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="./Gallery.html">Gallery
-                        </a>
+                        <a class="nav-link page-scroll" href="./Gallery.html">Gallery</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link page-scroll" href="./About Us.html">About Us</a>
@@ -47,9 +56,6 @@
                     <li class="nav-item">
                         <a class="nav-link page-scroll" href="./Resources.html">Resources</a>
                     </li>
-                    <!--<li class="nav-item">
-                        <a class="nav-link page-scroll" href="./Projects.html">Projects</a>
-                    </li>-->
                     <li class="nav-item">
                         <a class="nav-link page-scroll" href="./Blog.html">Blog</a>
                     </li>
@@ -57,7 +63,7 @@
                         <a class="nav-link page-scroll" href="./Team.html">Team</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll d-flex flex-row align-items-center text-primary" href=" https://docs.google.com/forms/d/e/1FAIpQLSePIkrUZUwBi6OzZxw1kF0866-jHEZVBZy1sEjjdoDKHOZZqA/viewform?usp=sf_link">
+                        <a class="nav-link page-scroll d-flex flex-row align-items-center text-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSePIkrUZUwBi6OzZxw1kF0866-jHEZVBZy1sEjjdoDKHOZZqA/viewform?usp=sf_link">
                             <em data-feather="plus" width="18" height="18" class="mr-2"></em>
                             Join Us
                         </a>
@@ -67,7 +73,6 @@
         </nav>
     </div>
 </section>
-
 
 <!--hero header-->
 <section class="py-7 py-md-0 bg-hero" id="home">
@@ -81,106 +86,61 @@
     </div>
 </section>
 
-
 <section class="py-7 bg-dark section-angle top-left bottom-left" id="blog">
     <div class="container">
         <div class="row">
             <div class="col-md-6 mx-auto text-center">
-                <h2 class="heading-black">Inaugration Ceremony</h2>
+                <h2 class="heading-black">Inauguration Ceremony</h2>
                 <p class="text-muted lead">31<sup>st</sup> October 2023</p>
             </div>
         </div>
         <div class="row mt-5">
             <div class="col-md-4">
                 <div class="card">
-                    <a href="https://drive.google.com/file/d/1oOXeUxvkkHjGiu0VyG0h7ruOr-eDgBr8/view?usp=drive_link">
-                        <img class="card-img-top img-raised" src="img/events/inaugration/1.jpg" alt="Blog 1">
+                    <a href="#" data-toggle="modal" data-target="#imageModal" data-img-src="img/events/inaugration/1.jpg">
+                        <img class="card-img-top img-raised" src="img/events/inaugration/1.jpg" alt="Inauguration 1">
                     </a>
-                    <div class="card-body">
-                        <a href="#" class="card-title mb-2"><h5></h5></a>
-        
-                    </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="card">
-                    <a href="https://drive.google.com/file/d/1ofu0sHzke7hDRHeZ99QsonVnNGv49upS/view?usp=drive_link">
-                        <img class="card-img-top img-raised" src="img/events/inaugration/2.jpg" alt="Blog 2">
+                    <a href="#" data-toggle="modal" data-target="#imageModal" data-img-src="img/events/inaugration/2.jpg">
+                        <img class="card-img-top img-raised" src="img/events/inaugration/2.jpg" alt="Inauguration 2">
                     </a>
-                    <div class="card-body">
-                        <a href="#" class="card-title mb-2"><h5></h5></a>    
-                    </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="card">
-                    <a href="https://drive.google.com/file/d/1_0Of0QSKZzCU2-yDvgURbLwXa7EXdm8b/view?usp=drive_link">
-                        <img class="card-img-top img-raised" src="img/events/inaugration/3.jpg" alt="Blog 3">
+                    <a href="#" data-toggle="modal" data-target="#imageModal" data-img-src="img/events/inaugration/3.jpg">
+                        <img class="card-img-top img-raised" src="img/events/inaugration/3.jpg" alt="Inauguration 3">
                     </a>
-                    <div class="card-body">
-                        <a href="#" class="card-title mb-2"><h5></h5></a>
-                    </div>
                 </div>
             </div>
         </div>
         <div class="row mt-6">
             <div class="col-md-6 mx-auto text-center">
-                <a href="https://sites.google.com/view/inaugurationeventeventgallery/home" class="btn btn-primary"> Go to Event Gallery -></a>
+                <a href="https://sites.google.com/view/inaugurationeventeventgallery/home" class="btn btn-primary">Go to Event Gallery -></a>
             </div>
         </div>
     </div>
 </section>
 
-<!--
-<section class="py-7 bg-dark section-angle top-left bottom-left" id="blog">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 mx-auto text-center">
-                <h2 class="heading-black">Industry Visit</h2>
-                <p class="text-muted lead">14<sup>th</sup> February 2023</p>
+<!-- Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-        </div>
-        <div class="row mt-5">
-            <div class="col-md-4">
-                <div class="card">
-                    <a href="#">
-                        <img class="card-img-top img-raised" src="img/events/bootcamp/1.jpeg" alt="Blog 1">
-                    </a>
-                    <div class="card-body">
-                        <a href="#" class="card-title mb-2"><h5></h5></a>
-        
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <a href="#">
-                        <img class="card-img-top img-raised" src="img/events/bootcamp/2.jpeg" alt="Blog 2">
-                    </a>
-                    <div class="card-body">
-                        <a href="#" class="card-title mb-2"><h5></h5></a>    
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <a href="#">
-                        <img class="card-img-top img-raised" src="img/events/bootcamp/3.jpeg" alt="Blog 3">
-                    </a>
-                    <div class="card-body">
-                        <a href="#" class="card-title mb-2"><h5></h5></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row mt-6">
-            <div class="col-md-6 mx-auto text-center">
-                <a href="https://mujcampus-my.sharepoint.com/:f:/g/personal/varun_tiwari_jaipur_manipal_edu/EqQeaUcK9GRPnb-2d4tsGFQBbQWbb1ZsAxN81sH_6krFNw?e=LHjsIo" class="btn btn-primary"> Go to Event Gallery -></a>
+            <div class="modal-body text-center">
+                <img class="enlarged-img img-fluid" src="" alt="">
             </div>
         </div>
     </div>
-</section>
--->
+</div>
+
 <!--footer-->
 <footer class="py-6">
     <div class="container">
@@ -200,48 +160,45 @@
                     </li>
                     <li class="list-inline-item">
                         <a href="https://discord.gg/nmgPvPds"><i><svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" fill="currentColor" class="bi bi-discord" viewBox="0 0 16 12">
-                            <path d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612Z"/>
-                          </svg></i></a>
+                            <path d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.059-.01c-.345.22-.708.396-1.09.52a11.798 11.798 0 0 1-2.7.53 11.798 11.798 0 0 1-2.7-.53 8.622 8.622 0 0 1-1.097-.52.051.051 0 0 0-.059.01.05.05 0 0 0-.01.059c.236.466.51.91.818 1.329a.05.05 0 0 0 .056.019 13.276 13.276 0 0 0 3.995-2.02c.01-.009.018-.023.021-.037.278-2.985-.331-5.954-1.472-8.624a.04.04 0 0 0-.021-.018zm-2.595 7.207c-.5.158-1.025.25-1.548.272v-.425a2.672 2.672 0 0 0-2.671-2.672h-.636a2.672 2.672 0 0 0-2.672 2.672v.425c-.523-.022-1.048-.114-1.548-.272a.05.05 0 0 0-.063.036 13.17 13.17 0 0 1-.41.905c.508.267 1.079.472 1.671.605.322.69.662 1.356 1.015 2.016a.053.053 0 0 0 .084 0c.353-.66.693-1.326 1.015-2.016.592-.132 1.163-.338 1.671-.605a13.169 13.169 0 0 1-.41-.905.051.051 0 0 0-.063-.036zm7.85-4.824l-.864-1.103-.988-1.255-.957 1.28-.848 1.13.884 1.11.977 1.233.977-1.233.883-1.11zm-4.285-1.814l-1.482-1.884-1.482 1.884-1.44 1.843 1.453 1.84 1.453-1.84 1.44-1.843zm-5.535 7.41l-.992-1.256-.864-1.103.883-1.11 1.04-1.316 1.04 1.316.883 1.11-.864 1.103-.992 1.256zm-3.693-9.66l-1.482-1.884-1.482 1.884-1.44 1.843 1.453 1.84 1.453-1.84 1.44-1.843zm8.842-1.105c-1.133 0-2.05.897-2.05 2.002s.917 2.002 2.05 2.002 2.05-.897 2.05-2.002-.917-2.002-2.05-2.002zm0 3.012c-.77 0-1.4-.611-1.4-1.01s.63-1.01 1.4-1.01 1.4.611 1.4 1.01-.63 1.01-1.4 1.01z"></path>
+                        </svg></i></a>
                     </li>
                 </ul>
             </div>
             <div class="col-sm-2">
-                <h5></h5>
+                <h5>Quick Links</h5>
                 <ul class="list-unstyled">
-                    <li><a href="#"></a></li>
-                    <li><a href="#"></a></li>
-                    <li><a href="#"> </a></li>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./Events.html">Events</a></li>
+                    <li><a href="./Gallery.html">Gallery</a></li>
+                    <li><a href="./About Us.html">About Us</a></li>
+                    <li><a href="./Resources.html">Resources</a></li>
+                    <li><a href="./Blog.html">Blog</a></li>
+                    <li><a href="./Team.html">Team</a></li>
                 </ul>
             </div>
-            <div class="col-sm-2">
-                <h5></h5>
+            <div class="col-sm-4">
+                <h5>Contact Us</h5>
+                <address>
+                    <strong>AIML Community</strong><br>
+                    Manipal University Jaipur,<br>
+                    Dehmi Kalan, Near GVK Toll Plaza,<br>
+                    Jaipur-Ajmer Expressway, Jaipur,<br>
+                    Rajasthan 303007, India<br>
+                </address>
                 <ul class="list-unstyled">
-                    <li><a href="#">  </a></li>
-                    <li><a href="#"></a></li>
+                    <li><span data-feather="phone"></span> +91 856 286 9865</li>
+                    <li><span data-feather="mail"></span> <a href="mailto:aimlcommunity@muj.manipal.edu">aimlcommunity@muj.manipal.edu</a></li>
                 </ul>
-            </div>
-            <div class="col-sm-2">
-                <h5>Help</h5>
-                <ul class="list-unstyled">
-                    <li><a href="mailto:aimlcommunity@muj.manipal.edu">Contact Us</a></li>
-                    <li><a href="https://jaipur.manipal.edu/">Manipal University Jaipur</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="row mt-5">
-            <div class="col-12 text-muted text-center small-xl">
-                &copy; 2023 Manipal University Jaipur - All Rights Reserved
             </div>
         </div>
     </div>
 </footer>
 
-
 <!--scroll to top-->
 <div class="scroll-top">
     <i class="fa fa-angle-up" aria-hidden="true"></i>
 </div>
-
 
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -250,5 +207,19 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.7.3/feather.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 <script src="js/scripts.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#imageModal').on('show.bs.modal', function (event) {
+            var imageSource = $(event.relatedTarget).data('img-src');
+            $('.enlarged-img').attr('src', imageSource);
+        });
+
+        $('#imageModal').on('hidden.bs.modal', function () {
+            $('.enlarged-img').attr('src', '');
+        });
+    });
+</script>
+
 </body>
 </html>
