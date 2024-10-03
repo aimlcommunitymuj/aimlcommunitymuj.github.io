@@ -5,6 +5,7 @@ import qrcode
 from PIL import Image, ImageDraw, ImageFont
 from io import BytesIO
 import time
+import os
 
 app = FastAPI()
 
@@ -33,11 +34,6 @@ async def serve_registration_page():
         return HTMLResponse(content=file.read())
 
 # Register user (handles POST requests)
-# Register user (handles POST requests)
-import base64
-
-import os
-
 @app.post("/register")
 async def register_user(
     name: str = Form(...),
@@ -61,7 +57,7 @@ async def register_user(
         conn.close()
 
         # Generate QR code with the unique ID URL
-        qr_url = f"https://your-live-server.com/id_card/{unique_id}"  # Replace with your live server URL
+        qr_url = f"http://127.0.0.1:8000/id_card/{unique_id}"  # Update to your live server URL when deployed
         qr = qrcode.QRCode(version=1, box_size=10, border=5)
         qr.add_data(qr_url)
         qr.make(fit=True)
@@ -81,11 +77,12 @@ async def register_user(
         qr_img = qr_img.resize((100, 100))
         img.paste(qr_img, (280, 70))
 
+        # Save final ID card image
         buffer = BytesIO()
         img.save(buffer, format="PNG")
         buffer.seek(0)
 
-        return StreamingResponse(final_buffer, media_type="image/png")
+        return StreamingResponse(buffer, media_type="image/png")
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Registration failed: {str(e)}")
@@ -93,28 +90,29 @@ async def register_user(
 # Serve ID card based on unique ID
 @app.get("/id_card/{unique_id}", response_class=StreamingResponse)
 async def get_id_card(unique_id: str):
-    conn = sqlite3.connect(DATABASE)
-    cursor = conn.cursor()
-    cursor.execute("SELECT name, post, image FROM students WHERE unique_id = ?", (unique_id,))
-    user = cursor.fetchone()
-    conn.close()
+    try:
+        conn = sqlite3.connect(DATABASE)
+        cursor = conn.cursor()
+        cursor.execute("SELECT name, post, image FROM students WHERE unique_id = ?", (unique_id,))
+        user = cursor.fetchone()
+        conn.close()
 
-    if user:
-        name, post, image_data = user
-        # Create ID card image
-        img = Image.new('RGB', (400, 200), color=(255, 255, 255))
-        d = ImageDraw.Draw(img)
-        font = ImageFont.load_default()
-        d.text((10, 10), f"Name: {name}", fill=(0, 0, 0), font=font)
-        d.text((10, 30), f"Post: {post}", fill=(0, 0, 0), font=font)
-        d.text((10, 50), f"ID: {unique_id}", fill=(0, 0, 0), font=font)
+        if user:
+            name, post, image_data = user
+            # Create ID card image
+            img = Image.new('RGB', (400, 200), color=(255, 255, 255))
+            d = ImageDraw.Draw(img)
+            font = ImageFont.load_default()
+            d.text((10, 10), f"Name: {name}", fill=(0, 0, 0), font=font)
+            d.text((10, 30), f"Post: {post}", fill=(0, 0, 0), font=font)
+            d.text((10, 50), f"ID: {unique_id}", fill=(0, 0, 0), font=font)
 
-        user_img = Image.open(BytesIO(image_data)).resize((100, 100))
-        img.paste(user_img, (10, 70))
+            user_img = Image.open(BytesIO(image_data)).resize((100, 100))
+            img.paste(user_img, (10, 70))
 
-        buffer = BytesIO()
-        img.save(buffer, format="PNG")
-        buffer.seek(0)
+            buffer = BytesIO()
+            img.save(buffer, format="PNG")
+            buffer.seek(0)
 
             return StreamingResponse(buffer, media_type="image/png")
         else:
