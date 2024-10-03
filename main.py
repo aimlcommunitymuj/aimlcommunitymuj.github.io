@@ -1,10 +1,10 @@
 import sqlite3
 from fastapi import FastAPI, Form, UploadFile, File, HTTPException
 from fastapi.responses import HTMLResponse, StreamingResponse
-import qrcode
 from PIL import Image, ImageDraw, ImageFont
 from io import BytesIO
 import time
+import qrcode
 
 app = FastAPI()
 
@@ -55,34 +55,27 @@ async def register_user(
         conn.commit()
         conn.close()
 
-        # Generate QR code
+        # Generate QR code with the unique ID URL
+        qr_url = f"https://your-live-server.com/id_card/{unique_id}"  # Replace with your live server URL
         qr = qrcode.QRCode(version=1, box_size=10, border=5)
-        qr.add_data(f"http://127.0.0.1:8000/id_card/{unique_id}")
+        qr.add_data(qr_url)
         qr.make(fit=True)
         qr_img = qr.make_image(fill="black", back_color="white")
 
-        # Create ID card with image, name, and QR code
-        img = Image.new('RGB', (600, 400), color=(255, 255, 255))
+        # Create ID card
+        img = Image.new('RGB', (400, 200), color=(255, 255, 255))
         d = ImageDraw.Draw(img)
+        font = ImageFont.load_default()
+        d.text((10, 10), f"Name: {name}", fill=(0, 0, 0), font=font)
+        d.text((10, 30), f"Post: {post}", fill=(0, 0, 0), font=font)
+        d.text((10, 50), f"ID: {unique_id}", fill=(0, 0, 0), font=font)
 
-        # Add details with formatting
-        font_large = ImageFont.load_default()
-        font_small = ImageFont.load_default()
+        user_img = Image.open(BytesIO(image_data)).resize((100, 100))
+        img.paste(user_img, (10, 70))
 
-        d.text((150, 50), f"Name: {name}", fill=(0, 0, 0), font=font_large)
-        d.text((150, 100), f"Post: {post}", fill=(0, 0, 0), font=font_small)
-        d.text((150, 150), f"ID: {unique_id}", fill=(0, 0, 0), font=font_small)
-        d.text((150, 200), "AIML Community", fill=(0, 0, 0), font=font_small)
-
-        # User's uploaded image
-        user_img = Image.open(BytesIO(image_data)).resize((150, 150))
-        img.paste(user_img, (10, 50))
-
-        # Paste QR code onto ID card
         qr_img = qr_img.resize((100, 100))
-        img.paste(qr_img, (480, 250))
+        img.paste(qr_img, (280, 70))
 
-        # Send ID card image as response
         buffer = BytesIO()
         img.save(buffer, format="PNG")
         buffer.seek(0)
@@ -92,49 +85,32 @@ async def register_user(
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Registration failed: {str(e)}")
 
-# Serve login page
-@app.get("/login", response_class=HTMLResponse)
-async def serve_login_page():
-    with open("static/login.html", "r") as file:
-        return HTMLResponse(content=file.read())
+# Serve ID card based on unique ID
+@app.get("/id_card/{unique_id}", response_class=StreamingResponse)
+async def get_id_card(unique_id: str):
+    conn = sqlite3.connect(DATABASE)
+    cursor = conn.cursor()
+    cursor.execute("SELECT name, post, image FROM students WHERE unique_id = ?", (unique_id,))
+    user = cursor.fetchone()
+    conn.close()
 
-# Retrieve and display ID card by unique ID
-@app.post("/login")
-async def display_id_card(unique_id: str = Form(...)):
-    try:
-        conn = sqlite3.connect(DATABASE)
-        cursor = conn.cursor()
-        cursor.execute("SELECT name, post, image FROM students WHERE unique_id = ?", (unique_id,))
-        result = cursor.fetchone()
-        conn.close()
+    if user:
+        name, post, image_data = user
+        # Create ID card image
+        img = Image.new('RGB', (400, 200), color=(255, 255, 255))
+        d = ImageDraw.Draw(img)
+        font = ImageFont.load_default()
+        d.text((10, 10), f"Name: {name}", fill=(0, 0, 0), font=font)
+        d.text((10, 30), f"Post: {post}", fill=(0, 0, 0), font=font)
+        d.text((10, 50), f"ID: {unique_id}", fill=(0, 0, 0), font=font)
 
-        if result:
-            name, post, image_data = result
+        user_img = Image.open(BytesIO(image_data)).resize((100, 100))
+        img.paste(user_img, (10, 70))
 
-            # Generate ID card with image, name, and QR code
-            img = Image.new('RGB', (600, 400), color=(255, 255, 255))
-            d = ImageDraw.Draw(img)
+        buffer = BytesIO()
+        img.save(buffer, format="PNG")
+        buffer.seek(0)
 
-            # Add details
-            font_large = ImageFont.load_default()
-            font_small = ImageFont.load_default()
-
-            d.text((150, 50), f"Name: {name}", fill=(0, 0, 0), font=font_large)
-            d.text((150, 100), f"Post: {post}", fill=(0, 0, 0), font=font_small)
-            d.text((150, 150), f"ID: {unique_id}", fill=(0, 0, 0), font=font_small)
-            d.text((150, 200), "AIML Community", fill=(0, 0, 0), font=font_small)
-
-            # User's uploaded image
-            user_img = Image.open(BytesIO(image_data)).resize((150, 150))
-            img.paste(user_img, (10, 50))
-
-            buffer = BytesIO()
-            img.save(buffer, format="PNG")
-            buffer.seek(0)
-
-            return StreamingResponse(buffer, media_type="image/png")
-        else:
-            raise HTTPException(status_code=404, detail="ID not found")
-
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Failed to retrieve ID card: {str(e)}")
+        return StreamingResponse(buffer, media_type="image/png")
+    else:
+        raise HTTPException(status_code=404, detail="User not found")
