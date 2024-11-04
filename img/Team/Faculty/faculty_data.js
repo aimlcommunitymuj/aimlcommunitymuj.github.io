@@ -39,7 +39,7 @@ function createFacultyCards() {
                       <ul class="list-inline social social-sm">
                           <li class="list-inline-item">
                               <a href="${faculty.linkedin}">
-                                  ${faculty.isNormalLink ? '<i class="fa fa-globe"></i>' : '<i class="fa fa-linkedin"></i>'}
+                                  ${faculty.isNormalLink ? '<i class="fa fa-globe"></i>' : '<i class="fab fa-linkedin"></i>'}
                               </a>
                           </li>
                       </ul>
