@@ -100,6 +100,170 @@
             max-width: none; /* Removes the max-width limitation */
             text-align: left; /* Align text to the left */
         }
+
+        body.blurred {
+            overflow: hidden;
+        }
+
+        /* Make the modal itself take up the full viewport */
+        .core-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 51, 0.8); /* Dark blue with 80% opacity */
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            overflow-y: auto; /* Enable vertical scrolling */
+            padding: 1rem; /* Optional: adds padding for better scrollable content experience */
+        }
+
+        /* Set a max height for the content area and enable scrolling */
+        .core-modal-content {
+            display: flex;
+            align-items: start;
+            background: rgba(20, 20, 20, 0.8); /* Darker theme with slight transparency for glassmorphic effect */
+            padding: 20px;
+            border-radius: 12px;
+            backdrop-filter: blur(6px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+            width: 80%;
+            max-height: 90vh; /* Limit height so it fits within the viewport */
+            overflow-y: auto; /* Enable scrolling within the content area */
+            color: #f0f0f0; /* Light text color for readability */
+        }
+
+
+
+        .executive-details {
+            flex: 1;
+            margin-right: 20px;
+            text-align: center;
+            color: #333; /* Dark color for visibility */
+        }
+
+        .executive-details h3, .executive-details p {
+            color: white; /* Ensure text is visible */
+        }
+
+        .core-members-list {
+            flex: 2;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .core-member-card {
+            margin: 10px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1); /* Slightly transparent background */
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            width: calc(50% - 20px);
+            text-align: center;
+            color: #f0f0f0;
+        }
+
+        .core-member-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+
+        .core-member-card h5 {
+            margin: 0;
+            color: white; /* Text color for visibility */
+        }
+        .close-overlay-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            color: #333;
+            cursor: pointer;
+            outline: none;
+        }
+        .close-overlay-btn:hover {
+            color: #000;
+        }
+
+
+        .hidden {
+            display: none;
+        }
+
+        /* Core Team section adjustments */
+        #core-team .heading-black {
+            font-size: 2.5rem;
+            white-space: nowrap;
+        }
+
+        /* Core Team category cards */
+        #core-team .heading-black {
+            font-size: 2.5rem;
+            white-space: nowrap; /* Prevents title from wrapping */
+        }
+
+        /* Core Team category cards */
+        #core-team-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around; /* Distributes space evenly */
+            margin-top: 2rem;
+        }
+
+        /* Core team cards */
+        .core-team-card {
+            flex: 1 1 30%; /* Allows cards to occupy up to 30% of the row */
+            min-width: 250px; /* Minimum width for better readability */
+            max-width: 300px; /* Prevents cards from becoming too wide */
+            padding: 0.3rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            margin: 10px; /* Adds consistent spacing between cards */
+        }
+        .core-member-card img {
+            width: 100%; /* Makes image fill the width of the card */
+            height: auto; /* Maintains aspect ratio */
+            border-radius: 10px; /* Matches executive card border radius */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Matches executive card shadow */
+            object-fit: cover; /* Ensures the image covers the entire area without stretching */
+        }
+
+
+        .core-team-card h5 {
+            color: #f0f0f0;
+            font-size: 1.25rem;
+            white-space: normal;
+            word-wrap: break-word;
+        }
+
+        /* Hover effect for cards */
+        .core-team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 183, 255, 0.6);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .core-team-card {
+                flex: 1 1 100%;
+                max-width: 100%;
+            }
+        }
+
+
+
         
 
     </style>
@@ -169,7 +333,7 @@
       </div>
     </div>
 </section>
-
+<!--Executive  Section-->
 <section class="py-7 bg-dark section-angle top-left bottom-left" id="executive-team">
     <div class="container">
         <div class="row">
@@ -183,6 +347,30 @@
         </div>
     </div>
 </section>
+
+<!-- Core Team Section -->
+<section class="py-7 bg-dark section-angle top-left bottom-left" id="core-team">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h2 class="heading-black">Core Team 🛠️</h2>
+                <p class="text-muted lead">Our Specialized Teams</p>
+            </div>
+        </div>
+        <div class="row mt-5" id="core-team-cards">
+            <!-- Core team category cards will be generated here -->
+        </div>
+    </div>
+</section>
+
+
+<!-- Core Member Overlay -->
+<div id="core-member-overlay" class="core-modal hidden">
+    <div class="core-modal-content">
+        <div id="selected-team" class="executive-details"></div>
+        <div id="core-members-list" class="core-members-list"></div>
+    </div>
+</div>
 
 <!-- Footer -->
 <footer class="py-6" data-aos="fade-up">
@@ -225,6 +413,8 @@
 </script>
 <!-- Executive Data JS -->
 <script src="img/Executive/exec_data.js"></script>
+<!-- Core Data JS -->
+<script src="img/core/core_data.js"></script>
 
 </body>
 </html>

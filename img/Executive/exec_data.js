@@ -27,7 +27,7 @@ const executiveData = [
         name: "Ronit Mann",
         title: "Web master",
         image: "img/Executive/Ronit Mann.jpg",
-        icon: "fas fa-code" 
+        icon: "fas fa-code",
     },
     {
         name: "Chetanya Jolly",
@@ -52,10 +52,12 @@ const executiveData = [
 
 function createExecutiveCards() {
     const execContainer = document.getElementById('executive-cards');
-    executiveData.forEach((exec) => {
+    execContainer.innerHTML = '';  // Clear any pre-existing content
+
+    executiveData.forEach((exec, index) => {
         const card = `
             <div class="col-md-4">
-                <div class="card executive-card">
+                <div class="card executive-card" data-index="${index}">
                     <img class="card-img-top" src="${exec.image}" alt="${exec.name}">
                     <div class="card-body">
                         <h5>${exec.name}</h5>
@@ -65,7 +67,14 @@ function createExecutiveCards() {
             </div>`;
         execContainer.innerHTML += card;
     });
+
+    document.querySelectorAll('.executive-card').forEach(card => {
+        card.addEventListener('click', (e) => {
+            const index = e.currentTarget.getAttribute('data-index');
+            showCoreMembers(executiveData[index]);
+        });
+    });
 }
 
-document.addEventListener("DOMContentLoaded", createExecutiveCards);
 
+document.addEventListener("DOMContentLoaded", createExecutiveCards);
