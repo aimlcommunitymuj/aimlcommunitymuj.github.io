@@ -12,7 +12,7 @@ const coreTeamData = [
         category: "Admin",
         members: [
             { name: "Lakshya", image: "img/core/Lakshya.jpg" },
-            { name: "Mayank Puri", image: "img/core/.jpg" },
+            { name: "Mayank Puri", image: "img/core/Mayank Puri.jpg" },
             // More members...
         ]
     },
@@ -31,7 +31,7 @@ const coreTeamData = [
         members: [
             { name: "Dev Kanabar", image: "img/core/Dev Kanabar.jpg" },
             { name: "Gunjan Goyal", image: "img/core/Gunjan Goyal.jpg" },
-            { name: "Srinidhi Dulam", image: "img/core/Srinindhi Dulam.jpg" },
+            { name: "Srinidhi Dulam", image: "img/core/Srinidhi Dulam.jpg" },
             // More members...
         ]
     },
