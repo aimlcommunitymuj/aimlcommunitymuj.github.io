@@ -1,2 +1,2 @@
 exclude:
-  - node_modules
+  - id_card_app/node_modules
