@@ -1,0 +1,2 @@
+exclude:
+  - id_card_app/node_modules
