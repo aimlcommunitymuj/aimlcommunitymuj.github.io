@@ -1,0 +1,158 @@
+/* Font and Layout */
+.footer {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: #ff7543;
+  color: #fff;
+  padding: 3rem 1.5rem;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Grid Layout */
+.footer-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .footer-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Brand Section */
+.footer-logo-box {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.footer-logo {
+  background-color: white;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 2rem;
+}
+
+.footer-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.footer-description {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 0.5rem;
+}
+
+/* Quick Links */
+.footer-heading {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.footer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-list li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-link {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.footer-link:hover {
+  color: #ffffff;
+}
+
+/* Social Links */
+.footer-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-icon-link {
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.3s ease;
+}
+
+.footer-icon-link:hover {
+  color: #ffffff;
+}
+
+.footer-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  text-align: center;
+}
+
+.footer-copy {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+
+@media (min-width: 768px) {
+  .footer {
+    padding: 4rem 2rem; /* More breathing space */
+  }
+
+  .footer-grid {
+    grid-template-columns: 1.5fr 1fr 1fr; /* Give more width to branding */
+    gap: 3rem;
+  }
+
+  .footer-logo {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .footer-title {
+    font-size: 1.75rem; /* Slightly larger title */
+  }
+
+  .footer-description {
+    font-size: 1rem;
+    max-width: 85%;
+  }
+
+  .footer-heading {
+    font-size: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .footer-link {
+    font-size: 1rem;
+  }
+
+  .footer-icon {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+
+  .footer-bottom {
+    font-size: 0.95rem;
+    margin-top: 4rem;
+    padding-top: 2.5rem;
+  }
+}

@@ -1,0 +1,244 @@
+.feature-section {
+  padding: 4rem 1rem;
+  background-color: var(--secondary);
+  font-family: 'Inter', sans-serif;
+}
+
+.feature-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.feature-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.feature-title {
+  font-size: clamp(1.75rem, 6vw, 2.5rem);
+  font-weight: 700;
+  color: var(--foreground);
+  margin-bottom: 1rem;
+}
+
+.feature-subtitle {
+  font-size: clamp(1rem, 4vw, 1.25rem);
+  color: var(--muted-foreground);
+  max-width: 36rem;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.feature-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr; /* Default to single column on mobile */
+}
+
+@media (min-width: 640px) {
+  .feature-grid {
+    gap: 2rem;
+  }
+}
+
+.feature-card {
+  background-color: var(--card);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.feature-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.feature-icon-box {
+  width: 3rem;
+  height: 3rem;
+  background-color: var(--secondary);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.feature-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--primary);
+}
+
+.feature-card-title {
+  font-size: clamp(1rem, 3.5vw, 1.25rem);
+  font-weight: 600;
+  color: var(--card-foreground);
+  margin-bottom: 0.75rem;
+}
+
+.feature-card-text {
+  color: var(--muted-foreground);
+  font-size: clamp(0.95rem, 3vw, 1rem);
+  line-height: 1.6;
+}
+
+
+.feature-section {
+  padding: 4rem 1rem;
+  background-color: var(--secondary);
+  font-family: 'Inter', sans-serif;
+}
+
+.feature-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.feature-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.feature-title {
+  font-size: clamp(1.75rem, 6vw, 2.5rem);
+  font-weight: 700;
+  color: var(--foreground);
+  margin-bottom: 1rem;
+}
+
+.feature-subtitle {
+  font-size: clamp(1rem, 4vw, 1.25rem);
+  color: var(--muted-foreground);
+  max-width: 36rem;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.feature-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr; /* Default mobile layout */
+}
+
+.feature-card {
+  background-color: var(--card);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.feature-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.feature-icon-box {
+  width: 3rem;
+  height: 3rem;
+  background-color: var(--secondary);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.feature-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--primary);
+}
+
+.feature-card-title {
+  font-size: clamp(1rem, 3.5vw, 1.25rem);
+  font-weight: 600;
+  color: var(--card-foreground);
+  margin-bottom: 0.75rem;
+}
+
+.feature-card-text {
+  color: var(--muted-foreground);
+  font-size: clamp(0.95rem, 3vw, 1rem);
+  line-height: 1.6;
+}
+
+/* Small Tablets (≥640px) */
+@media (min-width: 640px) {
+  .feature-grid {
+    gap: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Medium Devices (≥768px) */
+@media (min-width: 768px) {
+  .feature-section {
+    padding: 5rem 2rem;
+  }
+
+  .feature-header {
+    margin-bottom: 3rem;
+  }
+
+  .feature-title {
+    font-size: 2.25rem;
+  }
+
+  .feature-subtitle {
+    font-size: 1.125rem;
+  }
+
+  .feature-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .feature-card {
+    padding: 2rem;
+  }
+
+  .feature-card-title {
+    font-size: 1.25rem;
+  }
+
+  .feature-card-text {
+    font-size: 1rem;
+  }
+}
+
+/* Large Devices (≥1024px) */
+@media (min-width: 1024px) {
+
+  .feature-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .feature-title {
+    font-size: 2.5rem;
+  }
+
+  .feature-subtitle {
+    font-size: 1.25rem;
+  }
+
+  .feature-card-text {
+    font-size: 1.05rem;
+  }
+}
+
+/* Extra Large Devices (≥1280px) */
+@media (min-width: 1280px) {
+  .feature-container {
+    padding: 0 2rem;
+  }
+
+  .feature-card {
+    padding: 2.5rem;
+  }
+
+  .feature-grid {
+    gap: 2.5rem;
+  }
+}
