@@ -59,7 +59,7 @@ const executives = [
   },
   {
     id: 4,
-    name: 'Shauiq Mishra',
+    name: 'Shauviq Mishra',
     designation: 'Technical Director',
     image: p5,
     linkedin: 'https://www.linkedin.com/in/shauviqmishra/',
