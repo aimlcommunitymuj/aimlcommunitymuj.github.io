@@ -2,7 +2,7 @@ import './Gallery.css';
 import { motion } from 'framer-motion';
 import { Image } from 'lucide-react';
 import p1 from '../../assets/1.jpg';
-import p3 from '../../assets/3.jpg';
+import p3 from '../../assets/GBM.jpg';
 import p4 from '../../assets/4.jpg';
 import p5 from '../../assets/5.jpg';
 import p6 from '../../assets/6.jpg';
@@ -24,8 +24,8 @@ const fadeInUp = {
 };
 
 const images = [
-  { id: 1, src: p8 },
-  { id: 2, src: p3 },
+  { id: 1, src: p3 },
+  { id: 2, src: p8 },
   { id: 3, src: p11 },
   { id: 4, src: p6 },
   { id: 5, src: p5 },

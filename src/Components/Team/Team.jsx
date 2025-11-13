@@ -6,10 +6,12 @@ import p2 from '../../assets/Ishaan.jpg'
 import p3 from '../../assets/Gotham.jpg'
 import p4 from '../../assets/mannya.jpg'
 import p5 from '../../assets/shauviq.jpg'
-import p6 from '../../assets/akshat.jpg'
+import p6 from '../../assets/samar.jpeg'
 import p7 from '../../assets/rishi.jpg'
 import p8 from '../../assets/ashmit.jpg'
 import p9 from '../../assets/khushi.jpg'
+import p10 from '../../assets/vedika.jpg'
+import p11 from '../../assets/kaushik.jpg'
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -65,11 +67,11 @@ const executives = [
   },
   {
     id: 5,
-    name: 'Akshat Mishra',
+    name: 'Samar Verma',
     designation: 'Treasurer',
     image: p6,
-    linkedin: 'https://www.linkedin.com/in/akshat-mishra-3b414a271/',
-    instagram: 'https://www.instagram.com/definitelynot_akshat/'
+    linkedin: 'https://www.linkedin.com/in/samar-verma-f16sam',
+    instagram: 'https://www.instagram.com/samuel_f16sam/'
   },
   {
     id: 6,
@@ -94,6 +96,22 @@ const executives = [
     image: p9,
     linkedin: 'https://www.linkedin.com/in/khushi-arya-4782682b1?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
     instagram: 'https://www.instagram.com/khushiarya_25?igsh=MWJ2dTN2NWxxdDVibA=='
+  },
+  {
+    id: 9,
+    name: 'Vedika Amol',
+    designation: 'HR Director',
+    image: p10,
+    linkedin: 'http://www.linkedin.com/in/vedika-amol-deshpande-02ab2435b',
+    instagram: 'https://www.instagram.com/vedikais2cool'
+  },
+  {
+    id: 10,
+    name: 'S Kaushik Rao',
+    designation: 'P&R Head',
+    image: p11,
+    linkedin: 'LinkedIn - https://www.linkedin.com/in/s-kaushik-rao-33336a289?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+    instagram: 'https://www.instagram.com/cow_chick'
   },
 ];
 
